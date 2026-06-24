@@ -1,6 +1,6 @@
 # RankFlow — Backend
 
-Production-ready REST API for RankFlow: processing financial transactions, preventing duplicate requests, computing fair user rankings, and exposing analytics endpoints. Built with FastAPI, SQLAlchemy 2.0, and Supabase PostgreSQL.
+Production-ready REST API for RankFlow: processing financial transactions, preventing duplicate requests, computing fair user rankings, and exposing analytics endpoints. Built with FastAPI, SQLAlchemy 2.0, and Supabase PostgreSQL
 
 ---
 
@@ -707,5 +707,6 @@ pytest -v
 - Frontend README: `../frontend/README.md`
 - Root project README: `../README.md`
 - Interactive API docs: http://localhost:8000/docs (when server is running)
-#   R a n k F l o w _ b a c k e n d  
+#   R a n k F l o w _ b a c k e n d 
+ 
  
