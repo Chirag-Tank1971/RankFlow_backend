@@ -671,6 +671,7 @@ pytest -v
 ### Notes
 
 - Python is pinned to `3.12` in `.python-version` so cloud builders do not default to Python 3.14, which can force source builds for pinned binary dependencies.
+- Do not use `--reload` in production. It starts Uvicorn's development reloader and can bind the app to localhost-only if `--host 0.0.0.0` is missing.
 - Use Supabase **Session pooler** URL for serverless/cloud deployments
 - Ensure CORS allows your frontend domain (currently `allow_origins=["*"]` for development)
 - Never commit `.env` to version control
@@ -686,6 +687,7 @@ pytest -v
 | `relation "users" does not exist` | Migrations not run | Run `alembic upgrade head` |
 | `uvicorn is not recognized` | venv not activated or deps missing | `venv\Scripts\activate` then `pip install -r requirements.txt` |
 | Port already in use | Another process on 8000 | Use `--port 8001` or stop the other process |
+| Render says no open ports detected | Uvicorn is bound to `127.0.0.1` or the wrong port | Use `uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
 | `psycopg2` build errors on Windows | Missing MSVC build tools | Project uses `psycopg` v3 which has prebuilt wheels |
 
 ---

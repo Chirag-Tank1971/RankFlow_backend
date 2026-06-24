@@ -32,6 +32,10 @@ def create_app() -> FastAPI:
     )
     app.add_middleware(RequestLoggingMiddleware)
 
+    @app.get("/")
+    def health_check() -> dict[str, str]:
+        return {"status": "ok"}
+
     app.include_router(transaction_router)
     app.include_router(summary_router)
     app.include_router(ranking_router)
