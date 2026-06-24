@@ -49,7 +49,7 @@ The API is consumed by the React frontend and can also be used directly via Swag
 
 | Technology | Purpose |
 |------------|---------|
-| Python 3.12+ | Runtime (3.14 supported for local dev) |
+| Python 3.12 | Runtime pinned for deployment compatibility |
 | FastAPI | Web framework and OpenAPI docs |
 | SQLAlchemy 2.0 | ORM and database access |
 | Pydantic v2 | Request/response validation |
@@ -145,7 +145,7 @@ backend/
 
 ## Prerequisites
 
-- Python 3.12 or newer
+- Python 3.12
 - pip and venv
 - A Supabase account (free tier works)
 - Git (optional)
@@ -670,6 +670,7 @@ pytest -v
 
 ### Notes
 
+- Python is pinned to `3.12` in `.python-version` so cloud builders do not default to Python 3.14, which can force source builds for pinned binary dependencies.
 - Use Supabase **Session pooler** URL for serverless/cloud deployments
 - Ensure CORS allows your frontend domain (currently `allow_origins=["*"]` for development)
 - Never commit `.env` to version control
